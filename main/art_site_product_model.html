@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <link rel="icon" type="image/x-icon" href="D:\art_site\site_icon.jpg">
+    <link rel="stylesheet" href="D:\art_site\art_site_style.css">
+    <script src="D:\art_site\art_site_function.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="header" style="margin: 0;">
+        <div class="center">
+        <div class="menu_ribbon">
+            <a class="menu_option" href="D:\art_site\main\art_site_main_page.html" target="_self">SHOP ALL</a>
+            <a class="menu_option" href="D:\art_site\main\art_site_originals.html" target="_self">ORIGINALS</a>
+            <a class="menu_option" href="D:\art_site\main\art_site_prints.html" target="_self">PRINTS</a>
+            <a class="menu_option" href="D:\art_site\main\art_site_crafts.html" target="_self">CRAFTS</a>
+            <a class="menu_option" href="D:\art_site\contact\art_site_contact.html" target="_self">CONTACT</a>
+            <a class="menu_option" href="D:\art_site\about_me\art_site_about_me.html" target="_self">ABOUT ME</a>
+        </div>
+        <div id="cart_container">
+            <a href="D:\art_site\shopping_cart\art_site_shopping_cart_page.html" target="_self">
+                <img src="D:\art_site\shopping_cart_icon.png" alt="shopping_cart_icon"> 
+                <!-- modifying the height and width of the icon here affects the container -->
+            </a>
+            <div class="cart_count" id="cart_count">0</div>
+        </div>
+        </div>
+    </div>
+
+    <div class="main_container">
+        <div class="product_photo_container">
+            <div class="product_photo" id="art_piece_photo1">
+                <img src="D:\art_site\art\reptile reddit 25 07 2024.jpg">
+            </div>
+        </div>
+        <div class="product_info">
+        <div class="product_written_info">
+            <p class="art_piece_title" id="art_piece_title1">Title</p>
+            <p class="art_piece_description" id="art_piece_description1">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="product_buying_info">
+            <p class="art_piece_price" id="price1" style="padding-bottom: 8%">Price: 1000RON</p>
+            <label class="label_quantity" for="quantity1">Quantity:</label><br>
+            <div style="display: block; margin-bottom: 8%; margin-top: 8%;">
+                <input class="product_quantity_input_box" type="number" id="quantity1" name="quantity1" placeholder="0">
+            </div>
+            <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_nr_to_cart()">add to cart</div>
+        </div>
+        </div>
+        <p>  </p>
+        <p>  </p>
+        <p>  </p>
+        <p>  </p>
+    </div>
+    </body>
+</html>

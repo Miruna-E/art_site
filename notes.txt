@@ -1,0 +1,11 @@
+href="#" -> top of the current page -> anchor links, trigger JS 
+href="" -> current page -> reload the page (for JS)
+
+
+The menu ribbon's margin-bottom doesn't move the image downwards because it has position: fixed, which removes the element from the normal document flow. This means its margins don't affect the positioning of other elements on the page. The content (including the div with the shopping cart image) is laid out as if the menu ribbon doesn't exist, so it starts at the very top of the page, appearing behind the fixed menu.
+
+To create empty space between the menu ribbon and the image, you need to push the content below it. A common solution for fixed headers is to add padding-top to the body element, equal to (or slightly more than) the height of the menu ribbon. This creates space at the top of the page, ensuring the content starts below the menu.
+
+Since your menu's height isn't explicitly set and depends on its content and padding, I've added padding-top: 50px to the body in your CSS as a starting point. You can adjust this value (e.g., to 40px or 60px) based on how the menu looks in your browser—inspect the menu's height using developer tools and match the padding accordingly.
+
+If you prefer not to add padding to the body (e.g., to avoid affecting the background), you could instead add margin-top to the div containing the image. For example, add a class like content to that div in your HTML, then add .content { margin-top: 50px; } to your CSS. Let me know if you'd like help implementing that instead!
