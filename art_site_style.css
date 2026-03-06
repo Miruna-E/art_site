@@ -24,7 +24,7 @@ h1{
     text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
 }
 
-h2, h3, #cart_count, #empty_cart{
+h2, h3, #cart_count, #cart_message{
     font-family: fantasy;
     font-weight: 500;
     text-align: center;
@@ -32,7 +32,7 @@ h2, h3, #cart_count, #empty_cart{
     /* text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; */
 }
 
-#cart_count, #empty_cart{
+#cart_count, #cart_message{
     font-size: xx-large;
 }
 
@@ -63,7 +63,7 @@ ul, li {
     text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
 }
 
-.menu_ribbon{
+nav{
     background-color: rgb(70, 54, 107);
     padding: 2%;
     width: 80%;
@@ -86,7 +86,7 @@ ul, li {
     color: rgb(199, 55, 168);
 }
 
-.header{
+header{
     margin-bottom: 4%;
     /* position: fixed; */
 }
