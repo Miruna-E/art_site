@@ -179,7 +179,7 @@ header{
     width: 100%;
 }
 
-.art_piece_title, .art_piece_price, .add_to_cart_button, .label_quantity{
+.art_piece_title, .art_piece_price, .add_to_cart_button, #empty_cart_button, .label_quantity{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 22px;
     font-weight: 600;
@@ -196,18 +196,26 @@ header{
     margin-bottom: 2%;
 }
 
-.add_to_cart_button{
+.add_to_cart_button, #empty_cart_button{
     display: grid;
     margin: 0;
     padding-top: 2%;
     padding-bottom: 2%;
-    width: 100%;
     height: fit-content;
     background-color: rgb(99, 97, 204);
     text-align: center;
 }
 
-.add_to_cart_button:hover{
+.add_to_cart_button{
+    width: 100%;
+}
+
+#empty_cart_button{
+    width: 20%;
+    margin: 2%;
+}
+
+.add_to_cart_button:hover, #empty_cart_button:hover{
     background-color: rgb(199, 55, 168);
 }
 

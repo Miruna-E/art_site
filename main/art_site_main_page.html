@@ -12,10 +12,10 @@
     <header>
         <div class="center">
         <nav>
-            <a class="menu_option" href="\art_site\main\art_site_main_page.html" target="_self" onclick="filter_art(all)">SHOP ALL</a>
-            <a class="menu_option" href="\art_site\main\art_site_main_page.html" target="_self" onclick="filter_art(originals)">ORIGINALS</a>
-            <a class="menu_option" href="\art_site\main\art_site_main_page.html" target="_self" onclick="filter_art(prints)">PRINTS</a>
-            <a class="menu_option" href="\art_site\main\art_site_main_page.html" target="_self" onclick="filter_art(crafts)">CRAFTS</a>
+            <a class="menu_option" onclick='filter_art("all")'>SHOP ALL</a>
+            <a class="menu_option" onclick='filter_art("original")'>ORIGINALS</a>
+            <a class="menu_option" onclick='filter_art("print")'>PRINTS</a>
+            <a class="menu_option" onclick='filter_art("craft")'>CRAFTS</a>
             <a class="menu_option" href="\art_site\contact\art_site_contact.html" target="_self">CONTACT</a>
             <a class="menu_option" href="\art_site\about_me\art_site_about_me.html" target="_self">ABOUT ME</a>
         </nav>
@@ -32,7 +32,7 @@
     <main>
         <ul class="main_container">
             <!-- make changes to the first one only, copy it -->
-            <li class="art_piece_container" id="piece1">
+            <li class="art_piece_container" id="piece1" data-product-type="print">
                 <div class="art_piece_photo_container">
                     <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
                         <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
@@ -42,7 +42,7 @@
                 <p class="art_piece_price" id="price1">Price: 10RON</p>
                 <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_to_cart()">add to cart</div>
             </li>
-             <li class="art_piece_container" id="piece1">
+            <li class="art_piece_container" id="piece1" data-product-type="print">
                 <div class="art_piece_photo_container">
                     <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
                         <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
@@ -52,7 +52,7 @@
                 <p class="art_piece_price" id="price1">Price: 10RON</p>
                 <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_to_cart()">add to cart</div>
             </li>
-            <li class="art_piece_container" id="piece1">
+            <li class="art_piece_container" id="piece1" data-product-type="print">
                 <div class="art_piece_photo_container">
                     <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
                         <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
@@ -62,7 +62,7 @@
                 <p class="art_piece_price" id="price1">Price: 10RON</p>
                 <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_to_cart()">add to cart</div>
             </li>
-            <li class="art_piece_container" id="piece1">
+            <li class="art_piece_container" id="piece1" data-product-type="original">
                 <div class="art_piece_photo_container">
                     <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
                         <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
@@ -72,7 +72,7 @@
                 <p class="art_piece_price" id="price1">Price: 10RON</p>
                 <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_to_cart()">add to cart</div>
             </li>
-            <li class="art_piece_container" id="piece1">
+            <li class="art_piece_container" id="piece1" data-product-type="original">
                 <div class="art_piece_photo_container">
                     <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
                         <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
@@ -82,7 +82,7 @@
                 <p class="art_piece_price" id="price1">Price: 10RON</p>
                 <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_to_cart()">add to cart</div>
             </li>
-            <li class="art_piece_container" id="piece1">
+            <li class="art_piece_container" id="piece1" data-product-type="original">
                 <div class="art_piece_photo_container">
                     <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
                         <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
@@ -92,7 +92,7 @@
                 <p class="art_piece_price" id="price1">Price: 10RON</p>
                 <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_to_cart()">add to cart</div>
             </li>
-            <li class="art_piece_container" id="piece1">
+            <li class="art_piece_container" id="piece1" data-product-type="craft">
                 <div class="art_piece_photo_container">
                     <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
                         <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
@@ -102,7 +102,7 @@
                 <p class="art_piece_price" id="price1">Price: 10RON</p>
                 <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_to_cart()">add to cart</div>
             </li>
-            <li class="art_piece_container" id="piece1">
+            <li class="art_piece_container" id="piece1" data-product-type="craft">
                 <div class="art_piece_photo_container">
                     <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
                         <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
@@ -112,7 +112,7 @@
                 <p class="art_piece_price" id="price1">Price: 10RON</p>
                 <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_to_cart()">add to cart</div>
             </li>
-            <li class="art_piece_container" id="piece1">
+            <li class="art_piece_container" id="piece1" data-product-type="craft">
                 <div class="art_piece_photo_container">
                     <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
                         <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">

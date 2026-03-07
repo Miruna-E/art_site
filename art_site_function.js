@@ -38,7 +38,7 @@ let art_pieces=[{
 let quantities = [0];
 
 //cart number always shows up
-var cart_items_nr = document.getElementById("cart_count");
+let cart_items_nr = document.getElementById("cart_count");
 if(typeof(Storage) == "undefined"){
     cart_items_nr.innerHTML = "No web storage support!";
 } else {
@@ -49,7 +49,6 @@ if(typeof(Storage) == "undefined"){
 }
 
 function add_to_cart(){
-    var cart_items_nr = document.getElementById("cart_count");
     if(typeof(Storage) == "undefined"){
         cart_items_nr.innerHTML = "No web storage support!";
     } else {
@@ -61,8 +60,7 @@ function add_to_cart(){
 }
 
 function add_nr_to_cart(){
-    var cart_items_nr = document.getElementById("cart_count");
-    var nr_to_add = document.getElementById("quantity1");
+    let nr_to_add = document.getElementById("quantity1");
     if(typeof(Storage) == "undefined"){
         cart_items_nr.innerHTML = "No web storage support!";
     } else if(nr_to_add.value > 0){
@@ -73,22 +71,50 @@ function add_nr_to_cart(){
     }
 }
 
-var cart_items_nr = document.getElementById("cart_count");
-var cart_message = document.getElementById("cart_message");
+let cart_message = document.getElementById("cart_message");
 if(typeof(Storage) == "undefined"){
-    cart_message.innerHTML = "No web storage support!";
+    if(cart_message) {
+        cart_message.innerHTML = "No web storage support!";
+    } else console.log("No web storage support!");
 } else {
-    if(localStorage.cart_message && localStorage.cart_items_nr != 0){
-        localStorage.cart_message = String(localStorage.cart_items_nr) + " items";
+    if(localStorage.cart_message){
+        if(localStorage.cart_items_nr != 0){
+            localStorage.cart_message = String(localStorage.cart_items_nr) + " items";
+        } else localStorage.cart_message = "Your cart is empty.";
+        if(cart_message) {
+            cart_message.innerHTML = localStorage.cart_message;
+        }
     } else localStorage.cart_message = "Your cart is empty.";
-    cart_message.innerHTML = localStorage.cart_message;
 }
 
-//implement function to filter products, add to banner
-// function filter_art(filter_by){
-//     var container = document.getElementsByClassName("art_piece_container");
-    
-// }
+function empty_cart(){
+    if(typeof(Storage) == "undefined"){
+        cart_items_nr.innerHTML = "No web storage support!";
+    } else{
+        localStorage.cart_items_nr = 0;
+        cart_items_nr.innerHTML = localStorage.cart_items_nr;
+        localStorage.cart_message = "Your cart is empty.";
+        cart_message.innerHTML = localStorage.cart_message;
+    }
+}
+
+//move visible container_arr elements to top of page
+function filter_art(filter_by){
+    let container_arr = document.getElementsByClassName("art_piece_container");
+    for(let container of container_arr){
+        switch(filter_by){
+            case "all":
+                container.style.visibility="visible";
+                break;
+            case container.getAttribute("data-product-type"):
+                container.style.visibility="visible";
+                break;
+            default:
+                container.style.visibility="hidden";
+        }
+    }
+    return true;
+}
 
 //implement function to add new art pieces from the art_pieces array to the main page
 // function create_first_art_piece(){
