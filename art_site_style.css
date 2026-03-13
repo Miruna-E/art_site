@@ -152,6 +152,7 @@ header{
     justify-items: center;
     justify-content: center;
     margin: 1%;
+    min-width: 16em;
 }
 
 .art_piece_photo_container{
@@ -179,9 +180,16 @@ header{
     width: 100%;
 }
 
-.art_piece_title, .art_piece_price, .add_to_cart_button, #empty_cart_button, .label_quantity{
+.add_to_cart_button, #empty_cart_button, .label_quantity{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 22px;
+    font-weight: 600;
+    color: rgb(233, 231, 255);
+}
+
+.art_piece_title, .art_piece_price{
+    font-size: calc(1rem + 1vw);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     color: rgb(233, 231, 255);
 }

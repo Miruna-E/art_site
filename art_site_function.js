@@ -98,21 +98,30 @@ function empty_cart(){
     }
 }
 
-//move visible container_arr elements to top of page
+//move visible container_arr elements to top of page, TO DO
+container_visible = [];
+container_hidden = [];
+
 function filter_art(filter_by){
-    let container_arr = document.getElementsByClassName("art_piece_container");
+    const container_arr = Array.from(document.getElementsByClassName("art_piece_container"));
+    const page_container = document.getElementById("main_container");
+    let last_visible_i = -1;
     for(let container of container_arr){
         switch(filter_by){
             case "all":
                 container.style.visibility="visible";
+                container_visible.push(container);
                 break;
             case container.getAttribute("data-product-type"):
                 container.style.visibility="visible";
+                container_visible.push(container);
                 break;
             default:
                 container.style.visibility="hidden";
+                container_hidden.push(container);
         }
     }
+    const new_container_arr = [container_visible, container_hidden];
     return true;
 }
 
