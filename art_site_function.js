@@ -1,12 +1,4 @@
-// how to write new art pieces and art products' properties' values:
-// container_id = piece + index 
-// photo_id = art_piece_photo + index
-// title_id = art_piece_title + index
-// price_id = price + index
-// description_id = art_piece_description + index
-// add_to_cart_button_id = add_to_cart_piece + index
-// quantity_id = quantity + index
-
+//available art pieces options
 let art_pieces=[{
     title: "Jack in the army",
     photo_src: "\\art_site\\art\\reptile reddit 25 07 2024.jpg",
@@ -33,6 +25,8 @@ let art_pieces=[{
     description: "A coloring page, with a labyrinth and hidden hearts (can you count them all?). Help my dog reach the socks on the floor, color everything in and find his name!",
     product_page_href: "\\art_site\\main\\art_site_product_model_A_dog's_life.html",
 }];
+
+let listed_art_pieces=[]; //listed options on site, with available options but a bit changed (ex: will have both prints and originals where only the data- attribute and the price will differ)
 
 //quantity in shopping cart for each product
 let quantities = [0];
@@ -97,22 +91,29 @@ function empty_cart(){
         cart_message.innerHTML = localStorage.cart_message;
     }
 }
+// document.location.href is not reliable (originally read-only ex: Internet Explorer) => use window.location.href
+document.getElementById("shop_all_menu_option").addEventListener("click", () => {
+    filter_art("all");
+});
+document.getElementById("shop_originals_menu_option").addEventListener("click", () => {
+    filter_art("original");
+});
+document.getElementById("shop_prints_menu_option").addEventListener("click", () => {
+    filter_art("print");
+});
+document.getElementById("shop_crafts_menu_option").addEventListener("click", () => {
+    filter_art("craft");
+});
 
-//move visible container_arr elements to top of page, TO DO
 container_visible = [];
 container_hidden = [];
 
 function filter_art(filter_by){
-    const container_arr = Array.from(document.getElementsByClassName("art_piece_container"));
+    const container_arr = Array.from(document.getElementsByClassName("art_piece_container")); 
     const page_container = document.getElementById("main_container");
-    let last_visible_i = -1;
     for(let container of container_arr){
         switch(filter_by){
-            case "all":
-                container.style.visibility="visible";
-                container_visible.push(container);
-                break;
-            case container.getAttribute("data-product-type"):
+            case "all": case container.getAttribute("data-product-type"):
                 container.style.visibility="visible";
                 container_visible.push(container);
                 break;
@@ -121,13 +122,9 @@ function filter_art(filter_by){
                 container_hidden.push(container);
         }
     }
-    const new_container_arr = [container_visible, container_hidden];
-    return true;
+    page_container.replaceChildren(...container_visible, ...container_hidden);
+    return false; //doesn't do default action
 }
 
-//implement function to add new art pieces from the art_pieces array to the main page
-// function create_first_art_piece(){
-//     const firt_art_piece = document.getElementsByClassName
-// }
 
 //implement function to add products to shopping cart page
