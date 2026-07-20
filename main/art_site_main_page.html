@@ -29,7 +29,43 @@
         </div>
         <h1>Welcome!</h1>
     </header>
+
+    <div class="arrow-down"></div>
     <main>
+        <!-- using "figure" as a wrapper for the wheel-->
+        <figure> 
+            <!-- <figcaption>See what the wheel has to offer!</figcaption> -->
+            <div id="wheel_container">
+                <div id="wheel_stopper"></div>
+                <ul id="wheel_of_fortune" class="rotating_element">
+                    <!--using the site's background colors -->
+                    <!-- data instead of aria attributes so percentages don't get read twice by screen readers(aria-description + pseudo-element) -->
+                    <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_text">"Jack in the army" print</span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_text">"Jack in the army 2" print</span></li>
+                    <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_text">"Rat smoking a cig" print</span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_text">"A dog's life" print</span></li>
+                    <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_text">20% off on 3 prints</span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_text">15% off on 1 original</span></li>
+                    <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_text">2 free crafts under 15RON</span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_text">free stickers of each print bought</span></li>
+                    <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_text">20% off on transport</span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_text">next original comes with a pamphlet</span></li>
+
+                    <!-- ??? not sure how to make textboxes for each slice :(  -->
+                    <!-- <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_textbox"><span class="wheel_text">"Jack in the army" print</span></span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_textbox"><span class="wheel_text">"Jack in the army 2" print</span></span></li>
+                    <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_textbox"><span class="wheel_text">"Rat smoking a cig" print</span></span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_textbox"><span class="wheel_text">"A dog's life" print</span></span></li>
+                    <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_textbox"><span class="wheel_text">20% off on 3 prints</span></span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_textbox"><span class="wheel_text">15% off on 1 original</span></span></li>
+                    <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_textbox"><span class="wheel_text">2 free crafts under 15RON</span></span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_textbox"><span class="wheel_text">free stickers of each print bought</span></span></li>
+                    <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_textbox"><span class="wheel_text">20% off on transport</span></span></li>
+                    <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_textbox"><span class="wheel_text">next original comes with a pamphlet</span></span></li> -->
+                
+                </ul> 
+            </div>
+        </figure>
         <ul class="main_container" id="main_container">
             <!-- make changes to the first one only, copy it -->
             <li class="art_piece_container" id="piece1" data-product-type="print">

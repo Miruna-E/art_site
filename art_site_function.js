@@ -125,6 +125,81 @@ function filter_art(filter_by){
     page_container.replaceChildren(...container_visible, ...container_hidden);
     return false; //doesn't do default action
 }
+/*
+If an event causes both a default action and execution of a event handling script:
+the event handler script is executed first
+the default action takes place afterwards
+=> onclick -> href
+*/
 
+// how to write new art pieces and art products' properties' values:
+// container_id = piece + index 
+// photo_id = art_piece_photo + index
+// title_id = art_piece_title + index
+// price_id = price + index
+// description_id = art_piece_description + index
+// add_to_cart_button_id = add_to_cart_piece + index
+// quantity_id = quantity + index
+
+// //create new art piece
+// function add_art_piece(index){
+//     if(index != Number(index) || index >= art_pieces.length){
+//         console.log("Wrong index entered!");
+//         return 1;
+//     }
+//     let main_container = document.getElementById("main_container");
+//     let to_add = art_pieces[index];
+//     let new_container = document.createElement("li");
+//     new_container.class = "art_piece_container";
+//     new_container.id = "piece" + String(index);
+//     let new_photo_container = document.createElement("art_piece_photo_container");
+    
+    
+    
+//     main_container.appendChild(new_container);
+//     new_container.appendChild(new_photo_container);
+
+// };
+
+/*
+<main>
+        <ul class="main_container" id="main_container">
+            <!-- make changes to the first one only, copy it -->
+            <li class="art_piece_container" id="piece1" data-product-type="print">
+                <div class="art_piece_photo_container">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
+                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    </a>
+                </div>
+                <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>
+                <p class="art_piece_price" id="price1">Price: 10RON</p>
+                <div class="add_to_cart_button" id="add_to_cart_piece1" onclick="add_to_cart()">add to cart</div>
+            </li>
+        </ul>
+    </main>
+*/
 
 //implement function to add products to shopping cart page
+
+
+//wheel of fortune part:
+let wheelSlices = document.getElementById("wheel_of_fortune").getElementsByTagName("li");
+let sliceRotation = 0;
+for(let slice of wheelSlices){
+    slice.style.setProperty("--sliceRotation", sliceRotation); //can then be accessed in css
+    sliceRotation += parseFloat(slice.getAttribute("data-percentage"));
+}
+
+//!!!put isMoving in localStorage => wheel won't move when changing page
+let isMoving = true;
+document.getElementById("wheel_of_fortune").addEventListener("click", () => {
+    let wheel = document.getElementById("wheel_of_fortune");
+    if(!isMoving){
+        return;
+    }
+    if(wheel.className == "rotating_element"){
+        //removing the rotating element class would return to wheel to its original position
+        wheel.className = "rotating_element paused_element";
+        isMoving = false;
+    }
+});
