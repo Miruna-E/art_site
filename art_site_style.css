@@ -64,10 +64,22 @@ ul, li {
 }
 
 nav{
-    background-color: rgb(70, 54, 107);
     padding: 2%;
     width: 80%;
     margin-right: 2%;
+}
+
+nav, .banner{
+    background-color: rgb(70, 54, 107);
+    border-color: rgb(96, 120, 255);
+    border-style: dotted;
+}
+
+.banner{
+    width: 60vw;
+    height: 10vh;
+    background-color: rgb(70, 54, 107);
+    position: relative;
 }
 
 .menu_option{
@@ -277,6 +289,8 @@ header{
     /*shows in front of the wheel_stopper*/
     grid-area: 1/1;
     z-index: 1;
+    margin: 0;
+    padding: 0;
 }
 
 #wheel_of_fortune li{
@@ -311,10 +325,15 @@ header{
     /*var(--radius)/2 => center text on each slice*/
     --xLabel: calc((var(--radius)/2) * cos(var(--angleLabel)));
     --yLabel: calc((var(--radius)/2)  * sin(var(--angleLabel)));
+
+    margin: 0;
+    padding: 0;
 } 
 
 #wheel_of_fortune li::after{
     --yLabel: calc((var(--radius)/2) * sin(var(--angleLabel)) + 1lh);
+    margin: 0;
+    padding: 0;
 }
 
 #wheel_of_fortune li::after, .wheel_text{
@@ -330,9 +349,10 @@ header{
 
 /* !!! see how to make wheel_text wrap around in each slice*/
 /* !!!manage text size on wheel size change*/
-/* .wheel_text{
-    text-wrap: wrap;
-} */
+.wheel_text{
+    font-size: min(1.6vw, 1.4vh);
+    word-wrap: break-word;
+}
 
 /*creating a separate class for rotating elements helps add and remove the animation easily*/
 .rotating_element{ 
@@ -380,4 +400,32 @@ header{
     display: grid;
     width: fit-content;
     justify-self: center;
+}
+
+/*for the wheel alone*/
+#wheel_rotating_container{
+    width: min-content;
+    height: min-content;
+    /* border: 5px solid red; */
+}
+
+#wheel_of_fortune_announcement{
+    text-align: center;
+}
+
+.close_banner_button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    font-weight: 700;
+    color: #000000;
+    position: absolute;
+    margin: 0.8rem;
+    top: 0;
+    right: 0;
+    transition: 0.5s;
+}
+
+.close_banner_button:hover{
+    cursor: pointer; 
+    color: rgb(96, 120, 255);
 }
