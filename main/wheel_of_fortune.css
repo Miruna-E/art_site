@@ -1,0 +1,142 @@
+/*IMPORTANT: the wheel uses banners (from the main css/js files)*/
+
+/*!!! make the wheel on overlay, like paywalls, that appears only when you first load the page and disappears after usage*/
+/*!!!add confetti + message when wheel stops*/
+#wheel_of_fortune{
+    /*to place the slices => wheel*/
+    display: grid;
+    /* => slices arranged in the center of the #wheel_of_fortune container, each slice covers the container's row and column */
+    place-items: center;
+    /*shows in front of the wheel_stopper*/
+    grid-area: 1/1;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+
+#wheel_of_fortune li{
+    --radius: min(30vw, 40vh); /*defined the wheel's radius */
+    width: calc(var(--radius)*2); /*calculated the wheel's diameter*/
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    /*using the li attributes:*/
+    --weighing: calc(attr(data-percentage type(<number>))/100);
+    --percentage: calc(attr(data-percentage type(<number>))*1%);
+    --color: attr(data-color type(<color>));
+
+    /*slice rotation =sum of precentages, as a number*/
+    --offset: calc(360deg * var(--sliceRotation)/100);
+    background: conic-gradient(
+        /*=> offset needs to be in degrees*/
+        from var(--offset),
+        var(--color) 0% var(--percentage), 
+        transparent var(--percentage) 100%
+    );
+
+    /*to place the slices*/
+    grid-column: 1;
+    grid-row:1;
+    /*to place the labels*/
+    display: grid;
+    place-items: center;
+
+    /* --gapLabel: 4rem; */
+    --angleLabel: calc((360deg * var(--weighing))/2 + var(--offset) - 90deg);
+    /*var(--radius)/2 => center text on each slice*/
+    --xLabel: calc((var(--radius)/2) * cos(var(--angleLabel)));
+    --yLabel: calc((var(--radius)/2)  * sin(var(--angleLabel)));
+
+    margin: 0;
+    padding: 0;
+} 
+
+#wheel_of_fortune li::after{
+    --yLabel: calc((var(--radius)/2) * sin(var(--angleLabel)) + 1lh);
+    margin: 0;
+    padding: 0;
+}
+
+#wheel_of_fortune li::after, .wheel_text{
+    /*all slices are equal, so i chose not to include the percentage*/
+    /* content: attr(data-percentage) "%";*/ /*=> read out loud by screen readers */
+    
+    /*to place the labels*/
+    grid-column: 1;
+    grid-row: 1;
+    /*translate => place on slice; rotate => change orientation on slice*/
+    transform: translateX(var(--xLabel)) translateY(var(--yLabel)) rotate(var(--angleLabel));
+}
+
+/* !!! see how to make wheel_text wrap around in each slice*/
+/* !!!manage text size on wheel size change*/
+.wheel_text{
+    font-size: min(1.6vw, 1.4vh);
+    word-wrap: break-word;
+}
+
+/*creating a separate class for rotating elements helps add and remove the animation easily*/
+.rotating_element{ 
+    /*not sure about duration?*/
+    animation: rotating 1s linear infinite;
+}
+
+/*.paused_element NEEDS to be placed after .rotating_element for .paused_element to have any effect (for the animation to be defined)*/
+.paused_element{
+    animation-play-state: paused;
+}
+
+@keyframes rotating {
+    from {
+        transformm: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#wheel_stopper{
+    /* style1 */
+    width: 0;
+    height: 0;
+    border-left: calc(min(30vw, 40vh)/8) solid transparent;
+    border-right: calc(min(30vw, 40vh)/8) solid transparent;
+    border-top: calc(min(30vw, 40vh)/8) solid rgb(218, 197, 238);
+
+    /* style2 */
+    /* width: calc(min(30vw, 40vh)/8);
+    height: calc(min(30vw, 40vh)/6);
+    border-radius: 0% 0% 100% 100%; 
+    background-color: rgb(218, 197, 238);*/ 
+    /*same as the text on the wheel */
+
+    /*shows in front of the wheel*/
+    grid-area: 1/1;
+    z-index: 2;
+}
+
+/*for the wheel and wheel_stopper*/
+#wheel_container{
+    justify-items: center;
+    display: grid;
+    width: fit-content;
+    justify-self: center;
+}
+
+/*for the wheel alone*/
+#wheel_rotating_container{
+    width: min-content;
+    height: min-content;
+    /* border: 5px solid red; */
+}
+
+#wheel_of_fortune_announcement{
+    text-align: center;
+}
+
+/*for the background*/
+.blur_all {
+   filter: blur(5px);
+   user-select: none;
+   pointer-events: none;
+}

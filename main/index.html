@@ -2,9 +2,11 @@
 <html>
 <head>
     <title>somePotato's art</title>
-    <link rel="icon" type="image/x-icon" href="\art_site\site_icon.jpg">
-    <link rel="stylesheet" href="\art_site\art_site_style.css">
-    <script src="\art_site\art_site_function.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="..\images\site_icon.jpg">
+    <link rel="stylesheet" href="..\index.css">
+    <link rel="stylesheet" href=".\wheel_of_fortune.css">
+    <script src=".\wheel_of_fortune.js" defer></script>
+    <script src="..\index.js" defer></script>
     <meta charset="UTF-8">
 </head>
 
@@ -16,12 +18,12 @@
             <a class="menu_option" id="shop_originals_menu_option">ORIGINALS</a>
             <a class="menu_option" id="shop_prints_menu_option">PRINTS</a>
             <a class="menu_option" id="shop_crafts_menu_option">CRAFTS</a>
-            <a class="menu_option" href="\art_site\contact\art_site_contact.html" target="_self">CONTACT</a>
-            <a class="menu_option" href="\art_site\about_me\art_site_about_me.html" target="_self">ABOUT ME</a>
+            <a class="menu_option" href="..\contact\art_site_contact.html" target="_self">CONTACT</a>
+            <a class="menu_option" href="..\about_me\art_site_about_me.html" target="_self">ABOUT ME</a>
         </nav>
         <div id="cart_container">
-            <a href="\art_site\shopping_cart\art_site_shopping_cart_page.html" target="_self">
-                <img src="\art_site\shopping_cart_icon.png" alt="shopping_cart_icon"> 
+            <a href="..\shopping_cart\art_site_shopping_cart_page.html" target="_self">
+                <img src="..\images\shopping_cart_icon.png" alt="shopping_cart_icon"> 
                 <!-- modifying the height and width of the icon here affects the container -->
             </a>
             <div class="cart_count" id="cart_count"></div>
@@ -31,7 +33,7 @@
     </header>
 
     <main>
-        <div id="wheel_of_fortune_winner_container"></div>
+        <div id="wheel_of_fortune_winner_container" class="center"></div>
         <!--using "figure" as a wrapper for the wheel-->
         <figure id="wheel_figure"> 
             <div id="wheel_container">
@@ -68,12 +70,12 @@
             </div>
         </figure>
         
-        <ul class="main_container" id="main_container">
+        <ul class="main_container blur_all" id="main_container">
             <!-- make changes to the first one only, copy it -->
             <li class="art_piece_container" id="piece1" data-product-type="print">
                 <div class="art_piece_photo_container">
-                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
-                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="..\main\art_site_product_model.html" target="_self">
+                        <img src="..\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
                     </a>
                 </div>
                 <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>
@@ -82,8 +84,8 @@
             </li>
             <li class="art_piece_container" id="piece1" data-product-type="print">
                 <div class="art_piece_photo_container">
-                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
-                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="..\main\art_site_product_model.html" target="_self">
+                        <img src="..\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
                     </a>
                 </div>
                 <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>
@@ -92,8 +94,8 @@
             </li>
             <li class="art_piece_container" id="piece1" data-product-type="print">
                 <div class="art_piece_photo_container">
-                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
-                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="..\main\art_site_product_model.html" target="_self">
+                        <img src="..\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
                     </a>
                 </div>
                 <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>
@@ -102,8 +104,8 @@
             </li>
             <li class="art_piece_container" id="piece1" data-product-type="original">
                 <div class="art_piece_photo_container">
-                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
-                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="..\main\art_site_product_model.html" target="_self">
+                        <img src="..\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
                     </a>
                 </div>
                 <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>
@@ -112,8 +114,8 @@
             </li>
             <li class="art_piece_container" id="piece1" data-product-type="original">
                 <div class="art_piece_photo_container">
-                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
-                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="..\main\art_site_product_model.html" target="_self">
+                        <img src="..\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
                     </a>
                 </div>
                 <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>
@@ -122,8 +124,8 @@
             </li>
             <li class="art_piece_container" id="piece1" data-product-type="original">
                 <div class="art_piece_photo_container">
-                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
-                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="..\main\art_site_product_model.html" target="_self">
+                        <img src="..\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
                     </a>
                 </div>
                 <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>
@@ -132,8 +134,8 @@
             </li>
             <li class="art_piece_container" id="piece1" data-product-type="craft">
                 <div class="art_piece_photo_container">
-                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
-                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="..\main\art_site_product_model.html" target="_self">
+                        <img src="..\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
                     </a>
                 </div>
                 <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>
@@ -142,8 +144,8 @@
             </li>
             <li class="art_piece_container" id="piece1" data-product-type="craft">
                 <div class="art_piece_photo_container">
-                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
-                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="..\main\art_site_product_model.html" target="_self">
+                        <img src="..\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
                     </a>
                 </div>
                 <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>
@@ -152,8 +154,8 @@
             </li>
             <li class="art_piece_container" id="piece1" data-product-type="craft">
                 <div class="art_piece_photo_container">
-                    <a class="art_piece_photo"  id="art_piece_photo1" href="\art_site\main\art_site_product_model.html" target="_self">
-                        <img src="\art_site\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
+                    <a class="art_piece_photo"  id="art_piece_photo1" href="..\main\art_site_product_model.html" target="_self">
+                        <img src="..\art\reptile reddit 25 07 2024.jpg" width="80%" height="80%">
                     </a>
                 </div>
                 <p class="art_piece_title" id="art_piece_title1">Jack in the army</p>

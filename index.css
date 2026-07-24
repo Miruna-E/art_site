@@ -1,0 +1,255 @@
+body{
+    background-color: rgb(37, 29, 56);
+    background-image: url('..\\images\\background_overlay.jpg');
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.center{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    height: fit-content;
+}
+
+h1{
+    font-family: fantasy;
+    font-weight: 100;
+    text-align: center;
+    color: rgb(181, 85, 236);
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+}
+
+h2, h3, #cart_count, #cart_message{
+    font-family: fantasy;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(220, 159, 255);
+    /* text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; */
+}
+
+#cart_count, #cart_message{
+    font-size: xx-large;
+}
+
+p, li, .hidden, .art_piece_description, label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    color: rgb(218, 197, 238);
+}
+
+/* applying this to li adds gaps in the list  */
+p{
+    white-space: pre;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+.art_piece_description{
+    white-space: normal;
+}
+
+.warning{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(252, 135, 217);
+    font-weight: 800;
+    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+
+nav{
+    padding: 2%;
+    width: 80%;
+    margin-right: 2%;
+}
+
+nav, .banner{
+    background-color: rgb(70, 54, 107);
+    border-color: rgb(96, 120, 255);
+    border-style: dotted;
+}
+
+.banner{
+    width: 60vw;
+    height: 10vh;
+    background-color: rgb(70, 54, 107);
+    position: relative;
+}
+
+.menu_option{
+    display: inline-block;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: fantasy;
+    font-weight: 100;
+    font-size: x-large;
+    text-align: center;
+    color: rgb(60, 61, 175);
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+}
+
+.menu_option:hover{
+    color: rgb(199, 55, 168);
+}
+
+header{
+    margin-bottom: 4%;
+    /* position: fixed; */
+}
+
+.NOT_header{
+    margin-top: 4%;
+}
+
+.cart img{
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+}
+
+.cart_container{
+    display: inline-block;
+    width: max-content;
+    font-size: 0;
+}
+
+/* having the cart_count as p was a bad idea (bc I customised p) */
+.cart_count{
+    font-family: fantasy;
+    font-size: 64px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(96, 120, 255);
+    /* text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: inline-block;
+}
+
+.hyperlink{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    color: rgb(96, 120, 255);
+    background-color: rgb(37, 29, 56);
+}
+
+.hyperlink:hover{
+    color: rgb(250, 113, 232);
+}
+
+.hidden{
+    display: none;
+}
+
+.hyperlink:hover + .hidden{
+    display: block;
+}
+
+.art_piece_container{
+    display: inline-block;
+    max-width: 30%;
+    height: fit-content;
+    background-color: rgb(70, 54, 107);
+    text-align: center; 
+    justify-items: center;
+    justify-content: center;
+    margin: 1%;
+    min-width: 16em;
+}
+
+.art_piece_photo_container{
+    padding: 4%;
+}
+
+.art_piece_photo{
+    display: inline-block;
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.art_piece_photo{
+    height: 100%;
+    width: 100%;
+}
+
+.add_to_cart_button, #empty_cart_button, .label_quantity{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(233, 231, 255);
+}
+
+.art_piece_title, .art_piece_price{
+    font-size: calc(1rem + 1vw);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    color: rgb(233, 231, 255);
+}
+
+.art_piece_title{
+    white-space: pre;
+    margin: 0;
+}
+
+.art_piece_price{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.add_to_cart_button, #empty_cart_button{
+    display: grid;
+    margin: 0;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    height: fit-content;
+    background-color: rgb(99, 97, 204);
+    text-align: center;
+}
+
+.add_to_cart_button{
+    width: 100%;
+}
+
+#empty_cart_button{
+    width: 20%;
+    margin: 2%;
+}
+
+.add_to_cart_button:hover, #empty_cart_button:hover{
+    cursor: pointer;
+    background-color: rgb(199, 55, 168);
+}
+
+.main_container{
+    display: block;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.close_banner_button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    font-weight: 700;
+    color: #000000;
+    position: absolute;
+    margin: 0.8rem;
+    top: 0;
+    right: 0;
+    transition: 0.5s;
+}
+
+.close_banner_button:hover{
+    cursor: pointer;
+    color: rgb(96, 120, 255);
+}
