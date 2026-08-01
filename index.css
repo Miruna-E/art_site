@@ -19,9 +19,10 @@ body{
 h1{
     font-family: fantasy;
     font-weight: 100;
+    font-size: 4rem;
     text-align: center;
     color: rgb(181, 85, 236);
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+    text-shadow: -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, 2px 2px 0 #ffffff;
 }
 
 h2, h3, #cart_count, #cart_message{
@@ -33,7 +34,7 @@ h2, h3, #cart_count, #cart_message{
 }
 
 #cart_count, #cart_message{
-    font-size: xx-large;
+    font-size: 3rem;
 }
 
 p, li, .hidden, .art_piece_description, label{
@@ -65,7 +66,7 @@ ul, li {
 
 nav{
     padding: 2%;
-    width: 80%;
+    width: 75vw;
     margin-right: 2%;
 }
 
@@ -76,7 +77,7 @@ nav, .banner{
 }
 
 .banner{
-    width: 60vw;
+    width: 75vw;
     height: 10vh;
     background-color: rgb(70, 54, 107);
     position: relative;
@@ -84,11 +85,11 @@ nav, .banner{
 
 .menu_option{
     display: inline-block;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2rem;
+    padding-right: 2rem;
     font-family: fantasy;
     font-weight: 100;
-    font-size: x-large;
+    font-size: 2.5rem;
     text-align: center;
     color: rgb(60, 61, 175);
     text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
@@ -119,16 +120,14 @@ header{
 .cart_container{
     display: inline-block;
     width: max-content;
-    font-size: 0;
 }
 
 /* having the cart_count as p was a bad idea (bc I customised p) */
 .cart_count{
     font-family: fantasy;
-    font-size: 64px;
+    font-size: 4rem;
     font-weight: 500;
     text-align: center;
-    color: rgb(96, 120, 255);
     /* text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; */
     margin: 0;
     padding: 0;
@@ -157,6 +156,7 @@ header{
 
 .art_piece_container{
     display: inline-block;
+    min-width: 16em;
     max-width: 30%;
     height: fit-content;
     background-color: rgb(70, 54, 107);
@@ -164,7 +164,6 @@ header{
     justify-items: center;
     justify-content: center;
     margin: 1%;
-    min-width: 16em;
 }
 
 .art_piece_photo_container{
@@ -173,7 +172,6 @@ header{
 
 .art_piece_photo{
     display: inline-block;
-    font-size: 0;
     display: flex;
     justify-content: center;
 }
@@ -185,7 +183,7 @@ header{
 
 .add_to_cart_button, #empty_cart_button, .label_quantity{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 22px;
+    font-size: 1.6rem;
     font-weight: 600;
     color: rgb(233, 231, 255);
 }
@@ -239,7 +237,7 @@ header{
 
 .close_banner_button{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #000000;
     position: absolute;

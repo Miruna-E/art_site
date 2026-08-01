@@ -1,6 +1,5 @@
 .product_photo_container{
     display: inline-block;
-    font-size: 0;
     display: flex;
     justify-content: center;
     padding: 2%;
@@ -9,7 +8,6 @@
 
 .product_photo{
     display: inline-block;
-    font-size: 0;
     display: flex;
     justify-content: center;
 }
@@ -40,7 +38,7 @@
     height: 10%;
     background-color: rgb(218, 197, 238);
     color: rgb(60, 61, 175);
-    font-size: x-large;
+    font-size: 2rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     outline: 5px;
