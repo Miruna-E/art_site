@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>shopping cart</title>
-    <link rel="icon" type="image/x-icon" href="..\site_icon.jpg">
+    <link rel="icon" type="image/x-icon" href="..\images\site_icon.jpg">
+    <link rel="stylesheet" href=".\shopping_cart.css">
     <link rel="stylesheet" href="..\index.css">
     <script src="..\index.js" defer></script>
     <script src=".\shopping_cart_page.js" defer></script>
@@ -31,10 +32,11 @@
         <h1>Your shopping cart</h1>
     </header>
     <main>
-    <div id="cart_message"></div>
-    <div class="center">
-        <div id="empty_cart_button" onclick="empty_cart()">Empty cart</div>
-    </div>
+        <div class="center" id="cart_listings_container"></div>
+        <div id="cart_message"></div>
+        <div class="center">
+            <div id="empty_cart_button" onclick="empty_cart()">Empty cart</div>
+        </div>
     </main>
 </body>
 </html>

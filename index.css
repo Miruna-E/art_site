@@ -37,7 +37,7 @@ h2, h3, #cart_count, #cart_message{
     font-size: 3rem;
 }
 
-p, li, .hidden, .art_piece_description, label{
+p, li, .hidden, .art_piece_description, label, .cart_listing_name{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     color: rgb(218, 197, 238);
@@ -79,7 +79,6 @@ nav, .banner{
 .banner{
     width: 75vw;
     height: 10vh;
-    background-color: rgb(70, 54, 107);
     position: relative;
 }
 
