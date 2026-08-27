@@ -35,6 +35,14 @@ let cart_listings=[];
 //quantity in shopping cart for each product, in order
 let quantities=[];
 
+if(localStorage.getItem("cart_listings") !== "null" || localStorage.getItem("cart_quantities") !== "null"){ 
+    console.log("items exist in localStorage");
+    console.log(localStorage.getItem("cart_listings"));
+    console.log(localStorage.getItem("cart_listings").split(','));
+    cart_listings = localStorage.getItem("cart_listings").split(',');
+    quantities = localStorage.getItem("cart_quantities").split(',');
+}
+
 //cart number always shows up
 let cart_items_nr = document.getElementById("cart_count");
 if(typeof(Storage) == "undefined"){
@@ -48,6 +56,9 @@ if(typeof(Storage) == "undefined"){
 
 function add_to_cart(art_piece_index){
     // changing the text ("cart_count", id="cart_message")
+
+    //converting to string => can be found in the string "cart_listings" stored in local storage
+    art_piece_index = String(art_piece_index);
     let nr_to_add = document.getElementById("quantity1");
     if(nr_to_add === null){ //<=> quantity1 is undefined => the simple variation of the button was used, where the quantity is not specified
         nr_to_add = Number(1);
@@ -64,7 +75,6 @@ function add_to_cart(art_piece_index){
 
     //creating the cart_listings and quantities arrays
     let new_index = cart_listings.indexOf(art_piece_index);
-    let new_title = art_pieces[art_piece_index].title;
 
     //if there are no cart listings, or the art piece isn't already in the cart
     if(cart_listings == null || new_index === -1){
@@ -72,7 +82,8 @@ function add_to_cart(art_piece_index){
         quantities.push(nr_to_add);
     } else {
         let found_product_index = cart_listings.indexOf(art_piece_index); //index in the cart listings => changing the product listing (the quantity)
-        quantities[found_product_index] += nr_to_add;
+        //converting the quantity that needs to be changed to a number and converting the number to add to it => making sure the addition is right (no strings)
+        quantities[found_product_index] = Number(quantities[found_product_index]) + Number(nr_to_add);
     }
 
     //storing in order, only the art_pieces index of each cart listing, along with the quantity of each cart listing, in order
