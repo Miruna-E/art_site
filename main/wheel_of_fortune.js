@@ -22,15 +22,6 @@ for(let slice of wheelSlices){
     sliceRotation += parseFloat(slice.getAttribute("data-percentage"));
 }
 
-function enableClosingBannerButtons(){
-    let closeBannerButtons = document.getElementsByClassName("close_banner_button");
-    for(let button of closeBannerButtons){
-        button.addEventListener("click", () => {
-            button.parentElement.outerHTML = "";
-        });
-    }
-}
-
 let isMoving = true;
 
 document.getElementById("wheel_of_fortune").addEventListener("click", () => {
@@ -53,19 +44,36 @@ document.getElementById("wheel_of_fortune").addEventListener("click", () => {
     //getRotationAngle/36 => 10 slices, each 10% of the circle => 360degrees/10 gives the slice's number (not scalable, sadly)
     let winnerIndex = wheelSlices.length - 1 - Math.floor(getRotationAngle(document.getElementById("wheel_of_fortune"))/36);
     let winner = document.getElementById("wheel_of_fortune").getElementsByTagName("li")[winnerIndex];
-
+    let winnerProduct = winner.innerText;
+    
+    //if the winner has " => it's a title\name => remove them to find the product in other places
+    if(winner.innerText[0] === "\""){
+        winnerProduct = winnerProduct.split("\"")[1];
+    }
+    
     //adding the banner, showing the winner:
     // <div id="wheel_of_fortune_announcement" class="banner center">
     //     <p>Congratulations! You won (winner)</p>
-    //     <span class="close_banner_button">X</span>
+    //     <span class="closeButton">X</span>
     // </div> 
 
     let winnerMessage = document.createElement("p");
     winnerMessage.innerText = "Congratulations! You won " +  winner.innerText + "!";
-    console.log(winnerMessage.innerText);
+    let artPiecesWinnerIndex = art_pieces.map(e => e.title).indexOf(winnerProduct);
+
+    console.log(winnerProduct);
+    console.log(artPiecesWinnerIndex);
+
+    //if they won an art piece
+    if(artPiecesWinnerIndex !== -1){
+        add_to_cart(artPiecesWinnerIndex);
+    } else {
+        console.log(`made coupon: ${winnerProduct}`);
+        createCoupon(winnerProduct);
+    }
 
     let winnerCloseBannerButton = document.createElement("span");
-    winnerCloseBannerButton.className = "close_banner_button";
+    winnerCloseBannerButton.className = "closeButton";
     winnerCloseBannerButton.innerText = "X";
 
     let winnerAnnouncement = document.createElement("div");
@@ -77,6 +85,6 @@ document.getElementById("wheel_of_fortune").addEventListener("click", () => {
     let winnerContainer = document.getElementById("wheel_of_fortune_winner_container");
     winnerContainer.appendChild(winnerAnnouncement);
 
-    enableClosingBannerButtons(); //only works if placed at the end of this function
+    enableClosingButtons(); //only works if placed at the end of this function
     document.getElementById("main_container").classList.remove("blur_all");
 });

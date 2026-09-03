@@ -7,7 +7,7 @@ let art_pieces=[{
     description: "A reptile in the army with a bottle of Jack.",
     product_page_href: "..\\\main\\art_site_product_model_Jack_in_the_army.html",
 }, {title: "Jack in the army 2",
-    photo_src: "..\\\..\\art\\reptile reddit 25 07 2024.jpg",
+    photo_src: "..\\\..\\art\\reptile reddit new 01 08 2024.jpg",
     print_price: 10,
     original_price: 60,
     description: "A reptile in the army with a bottle of Jack, hidden behind his back.",
@@ -33,14 +33,11 @@ let listed_art_pieces=[]; //listed options on site, with available options but a
 //index of art_pieces in shopping cart for each product, in order
 let cart_listings=[];
 //quantity in shopping cart for each product, in order
-let quantities=[];
+let listingsQuantity=[];
 
-if(localStorage.getItem("cart_listings") !== "null" || localStorage.getItem("cart_quantities") !== "null"){ 
-    console.log("items exist in localStorage");
-    console.log(localStorage.getItem("cart_listings"));
-    console.log(localStorage.getItem("cart_listings").split(','));
+if(localStorage.getItem("cart_listings") !== "null" || localStorage.getItem("listingsQuantity") !== "null"){ 
     cart_listings = localStorage.getItem("cart_listings").split(',');
-    quantities = localStorage.getItem("cart_quantities").split(',');
+    listingsQuantity = localStorage.getItem("listingsQuantity").split(',');
 }
 
 //cart number always shows up
@@ -53,6 +50,70 @@ if(typeof(Storage) == "undefined"){
     } else localStorage.cart_items_nr = 0;
     cart_items_nr.innerHTML = localStorage.cart_items_nr;
 }
+
+//coupons owned, stored as the text messages on them, in order
+let couponMessages=[];
+//quantity in shopping cart for each coupon, in order
+let couponQuantity=[];
+
+if(localStorage.getItem("couponMessages") !== "null" || localStorage.getItem("couponQuantity") !== "null"){ 
+    couponMessages = localStorage.getItem("couponMessages").split(',');
+    couponQuantity = localStorage.getItem("couponQuantity").split(',');
+}
+
+function createCoupon(message){
+    //no repeating coupons
+    let newIndex = couponMessages.indexOf(message);
+    if(newIndex === -1){
+        couponMessages.push(message);
+        couponQuantity.push(1);
+        localStorage.setItem("couponMessages", couponMessages);
+    } else {
+        couponQuantity[newIndex] = Number(couponQuantity[newIndex]) + 1;
+    }
+    localStorage.setItem("couponQuantity", couponQuantity);
+}
+
+// //testing localStorage
+// console.log(localStorage.getItem("couponMessages"));
+// console.log(localStorage.getItem("couponQuantity"));
+
+if(localStorage.getItem("couponMessages") !== "null" || localStorage.getItem("couponQuantity") !== "null"){ 
+    couponMessages = localStorage.getItem("couponMessages").split(',');
+    couponQuantity = localStorage.getItem("couponQuantity").split(',');
+}
+
+//idk how to do this button type :( DO LATER
+// let minimizeButtonsState = [];
+// let minimizeButtonParentsHTML = [];
+
+// function enableMinimizeButtons(){
+//     let minimizeButtons = document.getElementsByClassName("minimize_button");
+//     for(let index = 0; index < minimizeButtons.length; index++){
+//         minimizeButtons[index].addEventListener("click", () => {
+//             //minimize is on or off
+//             if(minimizeButtonsState[index] != 1){
+//                 minimizeButtonsState[index] = 0;
+//                 minimizeButtonParentsHTML[index] = minimizeButtons[index].parentElement.outerHTML;
+//                 minimizeButtons[index].parentElement.outerHTML = "";
+//             } else {
+//                 minimizeButtonsState[index] = 1;
+//                 minimizeButtons[index].parentElement.outerHTML = minimizeButtonParentsHTML[index];
+//             } 
+//         });
+//     }
+// }
+// enableMinimizeButtons();
+
+function enableClosingButtons(){
+    let closeButtons = document.getElementsByClassName("closeButton");
+    for(let button of closeButtons){
+        button.addEventListener("click", () => {
+            button.parentElement.outerHTML = "";
+        });
+    }
+}
+enableClosingButtons();
 
 function add_to_cart(art_piece_index){
     // changing the text ("cart_count", id="cart_message")
@@ -79,22 +140,22 @@ function add_to_cart(art_piece_index){
     //if there are no cart listings, or the art piece isn't already in the cart
     if(cart_listings == null || new_index === -1){
         cart_listings.push(art_piece_index);
-        quantities.push(nr_to_add);
+        listingsQuantity.push(nr_to_add);
     } else {
         let found_product_index = cart_listings.indexOf(art_piece_index); //index in the cart listings => changing the product listing (the quantity)
         //converting the quantity that needs to be changed to a number and converting the number to add to it => making sure the addition is right (no strings)
-        quantities[found_product_index] = Number(quantities[found_product_index]) + Number(nr_to_add);
+        listingsQuantity[found_product_index] = Number(listingsQuantity[found_product_index]) + Number(nr_to_add);
     }
 
     //storing in order, only the art_pieces index of each cart listing, along with the quantity of each cart listing, in order
     //these are strings
     localStorage.setItem("cart_listings", cart_listings);
-    localStorage.setItem("cart_quantities", quantities);
+    localStorage.setItem("listingsQuantity", listingsQuantity);
 }
 
 // //testing localStorage
 // console.log(localStorage.getItem("cart_listings"));
-// console.log(localStorage.getItem("cart_quantities"));
+// console.log(localStorage.getItem("listingsQuantity"));
 
 // document.location.href is not reliable (originally read-only ex: Internet Explorer) => use window.location.href
 document.getElementById("shop_all_menu_option").addEventListener("click", () => {

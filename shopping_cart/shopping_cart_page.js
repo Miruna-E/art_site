@@ -14,6 +14,35 @@ if(typeof(Storage) == "undefined"){
     } else localStorage.cart_message = "Your cart is empty.";
 }
 
+function createCouponCSS(message, quantity){
+    //creating the new  coupon, with the following model:
+    
+    // <div id="coupon1" class="coupon center">
+    //     <p>example text</p>
+    //     <span class="couponQuantityBox">300</span>
+    // </div>
+    
+    let newCoupon = document.createElement("div");
+
+    //Math.random() returns a floating-point number between 0 (inclusive) and 1 (exclusive).
+    //I choose to have the id contain an integer, not a floating-point number, for readability
+    newCoupon.setAttribute("id", String("coupon" + Math.floor(Math.random() * 100)));
+    newCoupon.classList.add("coupon", "center");
+
+    let newMessage = document.createElement("p");
+    newMessage.innerText = message;
+    newMessage.classList.add("couponName");
+    newCoupon.appendChild(newMessage);
+
+    let newQuantityBox = document.createElement("span");
+    newQuantityBox.classList.add("couponQuantityBox");
+    newQuantityBox.innerText = quantity;
+    newCoupon.appendChild(newQuantityBox);
+
+    //adding the new coupon to the container
+    document.getElementById("coupons_container").appendChild(newCoupon);
+}
+
 function add_to_cart_CSS(art_piece_index, listing_quantity){
     //creating the new cart listing, with the following model:
 
@@ -54,28 +83,30 @@ function add_to_cart_CSS(art_piece_index, listing_quantity){
     new_cart_listing.appendChild(new_cart_listing_quantity_input_box);
 
     //adding the new cart listing to the container
-    let cart_listings_container = document.getElementById("cart_listings_container");
-    cart_listings_container.appendChild(new_cart_listing);
+    document.getElementById("cart_listings_container").appendChild(new_cart_listing);
 }
 
-// //testing localStorage
-// //these are strings
-// console.log(localStorage.getItem("cart_listings"));
-// console.log(localStorage.getItem("cart_quantities"));
-
 //these are OBJECTS of numbers
-cart_listings = localStorage.getItem("cart_listings").split(",");
-quantities = localStorage.getItem("cart_quantities").split(",");
-
-// //testing different scenarios
-// console.log(cart_listings)
-// console.log(`cart_listings: ${cart_listings}; of type ${typeof(cart_listings)}`);
-// console.log(`quantities: ${quantities}; of type ${typeof(quantities)}`);
+if(localStorage.getItem("cart_listings") !== "null" || localStorage.getItem("listingsQuantity") !== "null"){ 
+    cart_listings = localStorage.getItem("cart_listings").split(',');
+    listingsQuantity = localStorage.getItem("listingsQuantity").split(',');
+}
 
 //if the cart has items in localStorage and they're correctly stored (index of art_pieces + quantity)
-if(cart_listings && quantities && cart_listings[0] !== "null" && quantities[0] !== "null"){
+if(cart_listings && listingsQuantity && cart_listings[0] !== "null" && listingsQuantity[0] !== "null"){
    for(let index = 0; index < cart_listings.length; index++){
-        add_to_cart_CSS(cart_listings[index], quantities[index]);
+        add_to_cart_CSS(cart_listings[index], listingsQuantity[index]);
+   }
+}
+
+if(localStorage.getItem("couponMessages") !== "null" || localStorage.getItem("couponQuantity") !== "null"){ 
+    couponMessages = localStorage.getItem("couponMessages").split(',');
+    couponQuantity = localStorage.getItem("couponQuantity").split(',');
+}
+
+if(couponMessages && couponQuantity && couponMessages[0] !== "null" && couponQuantity[0] !== "null"){
+   for(let index = 0; index < couponMessages.length; index++){
+        createCouponCSS(couponMessages[index], couponQuantity[index]);
    }
 }
 
@@ -91,7 +122,7 @@ function empty_cart(){
     //index of art_pieces in shopping cart for each product, in order
     localStorage.setItem("cart_listings", null);
     //quantity in shopping cart for each product, in order
-    localStorage.setItem("cart_quantities", null);
+    localStorage.setItem("listingsQuantity", null);
 
     //deleting the cart_listings_container in real time
     let cart_listings_container = document.getElementById("cart_listings_container");

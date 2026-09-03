@@ -13,7 +13,6 @@ body{
     align-items: center;
     justify-items: center;
     display: flex;
-    height: fit-content;
 }
 
 h1{
@@ -234,7 +233,7 @@ header{
     margin-right: 4%;
 }
 
-.close_banner_button{
+.closeButton, .minimize_button{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
@@ -244,9 +243,10 @@ header{
     top: 0;
     right: 0;
     transition: 0.5s;
+    background-color: rgb(181, 85, 236);
 }
 
-.close_banner_button:hover{
+.closeButton:hover, .minimize_button:hover{
     cursor: pointer;
-    color: rgb(96, 120, 255);
+    color: white;
 }

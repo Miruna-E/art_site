@@ -34,18 +34,14 @@
     </header>
 
     <main>
-
-        <div class="center" id="cart_listings_container"></div>
-
         <div id="wheel_of_fortune_winner_container" class="center"></div>
         <!-- using "figure" as a wrapper for the wheel -->
-        <!-- <figure id="wheel_figure"> 
+        <figure id="wheel_figure"> 
             <div id="wheel_container">
                 <div id="wheel_stopper"></div>
-                class="rotating_element"
-                <ul id="wheel_of_fortune" >
-                    using the site's background colors
-                    data instead of aria attributes so percentages don't get read twice by screen readers(aria-description + pseudo-element)
+                <ul id="wheel_of_fortune" class="rotating_element">
+                    <!-- using the site's background colors
+                    data instead of aria attributes so percentages don't get read twice by screen readers(aria-description + pseudo-element) -->
                     <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_text">"Jack in the army" print</span></li>
                     <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_text">"Jack in the army 2" print</span></li>
                     <li data-percentage="10" data-color="rgba(37, 29, 56)"><span class="wheel_text">"Rat smoking a cig" print</span></li>
@@ -58,10 +54,9 @@
                     <li data-percentage="10" data-color="rgba(0, 0, 0)"><span class="wheel_text">next original comes with a pamphlet</span></li>
                 </ul> 
             </div>
-        </figure> -->
-
-        <!--add class: blur_all -->
-        <ul class="main_container" id="main_container">
+        </figure>
+        
+        <ul class="main_container blur_all" id="main_container">
             <!-- make changes to the first one only, copy it -->
             <li class="art_piece_container" id="piece1" data-product-type="print" data-product-index="0">
                 <div class="art_piece_photo_container">
