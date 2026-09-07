@@ -24,7 +24,7 @@ h1{
     text-shadow: -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, 2px 2px 0 #ffffff;
 }
 
-h2, h3, #cart_count, #cart_message{
+h2, h3, #cart_count, .cart_message{
     font-family: fantasy;
     font-weight: 500;
     text-align: center;
@@ -32,11 +32,16 @@ h2, h3, #cart_count, #cart_message{
     /* text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; */
 }
 
-#cart_count, #cart_message{
+#cart_free_transport_fee, #cart_price{
+    color: rgb(181, 85, 236);
+    text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+}
+
+#cart_count, .cart_message{
     font-size: 3rem;
 }
 
-p, li, .hidden, .art_piece_description, label, .cart_listing_name{
+p, li, .hidden, .art_piece_description, label, .cart_listing_name, .cart_listing_price, .cart_listing_full_price{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     color: rgb(218, 197, 238);
@@ -179,7 +184,7 @@ header{
     width: 100%;
 }
 
-.add_to_cart_button, #empty_cart_button, .label_quantity{
+.add_to_cart_button, .cart_button, .label_quantity{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
@@ -203,7 +208,7 @@ header{
     margin-bottom: 2%;
 }
 
-.add_to_cart_button, #empty_cart_button{
+.add_to_cart_button, .cart_button{
     display: grid;
     margin: 0;
     padding-top: 2%;
@@ -217,12 +222,13 @@ header{
     width: 100%;
 }
 
-#empty_cart_button{
+.cart_button{
     width: 20%;
     margin: 2%;
+    text-decoration: none;
 }
 
-.add_to_cart_button:hover, #empty_cart_button:hover{
+.add_to_cart_button:hover, .cart_button:hover{
     cursor: pointer;
     background-color: rgb(199, 55, 168);
 }

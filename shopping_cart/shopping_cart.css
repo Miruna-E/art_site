@@ -8,7 +8,6 @@
     overflow-x: hidden;
     scrollbar-color: rgb(220, 159, 255) rgb(70, 54, 107);
     position: relative; /* to place buttons correctly */
-    /* padding-top: 4%; */
 }
 
 .cart_listing{
@@ -30,12 +29,40 @@
     margin: 2vh;
 }
 
+.cart_listing_quantity_details{
+    display: block;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    width: 40%;
+    margin: 2%;
+}
+
+.cart_listing_name, .cart_listing_price, .cart_listing_full_price{
+    font-size: 2.4vh;
+    margin: 0;
+    width: 40%;
+    align-self: center;
+}
+
 .cart_listing_name{
-    font-size: 3vh;
+    max-width: 50%;
+    overflow-y: hidden;
+    /* the scrollbar appears only if the name doesn't fit */
+    overflow-x: auto; 
+    scrollbar-color: rgb(220, 159, 255) rgb(70, 54, 107);
+}
+
+.cart_listing_delete_button{
+    /* so it won't stay flush to parent's end */
+    padding-right: 4%;
+    margin: 2%
 }
 
 .product_quantity_input_box{
-    width: 16%;
+    display: flex;
+    width: 40%;
     height: 10%;
     border-radius: 4px;
 }
@@ -53,13 +80,15 @@
 
 .coupon{
     width: 50vw;
+    min-width: 80px;
     height: 10vh;
+    min-height: 40px;
     border: 0.8vh dashed rgb(181, 85, 236);
     margin: 2%;
 }
 
 .couponQuantityBox{
-    width: 10vh;
+    width: 10vw;
     height: 5vh;
     border-radius: 50%;
 }
@@ -68,4 +97,8 @@
     /* flex-grow => name fills out the empty space in the container => couponQuantityBox sits aligned to the end of the coupon */
     /* just wrote a big number to make sure all space is filled */
     flex-grow: 30;
+    overflow-y: hidden;
+    /* the scrollbar appears only if the name doesn't fit */
+    overflow-x: auto; 
+    margin: 5%;
 }

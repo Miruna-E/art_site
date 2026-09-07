@@ -116,8 +116,6 @@ function enableClosingButtons(){
 enableClosingButtons();
 
 function add_to_cart(art_piece_index){
-    // changing the text ("cart_count", id="cart_message")
-
     //converting to string => can be found in the string "cart_listings" stored in local storage
     art_piece_index = String(art_piece_index);
     let nr_to_add = document.getElementById("quantity1");
@@ -125,6 +123,7 @@ function add_to_cart(art_piece_index){
         nr_to_add = Number(1);
     } else nr_to_add = nr_to_add.value;
     
+    // changing the cart_count text
     if(typeof(Storage) == "undefined"){
         cart_items_nr.innerHTML = "No web storage support!";
     } else if(nr_to_add > 0){
@@ -152,6 +151,17 @@ function add_to_cart(art_piece_index){
     localStorage.setItem("cart_listings", cart_listings);
     localStorage.setItem("listingsQuantity", listingsQuantity);
 }
+
+function enable_add_to_cart_buttons(){
+    let add_to_cart_buttons = document.getElementsByClassName("add_to_cart_button");
+    for(let button of add_to_cart_buttons){
+        button.addEventListener("click", () => {
+            let crt_art_piece_index = Number(button.parentNode.getAttribute("data-product-index"));
+            add_to_cart(crt_art_piece_index);
+        });
+    }
+}
+enable_add_to_cart_buttons();
 
 // //testing localStorage
 // console.log(localStorage.getItem("cart_listings"));

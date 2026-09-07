@@ -61,14 +61,10 @@ document.getElementById("wheel_of_fortune").addEventListener("click", () => {
     winnerMessage.innerText = "Congratulations! You won " +  winner.innerText + "!";
     let artPiecesWinnerIndex = art_pieces.map(e => e.title).indexOf(winnerProduct);
 
-    console.log(winnerProduct);
-    console.log(artPiecesWinnerIndex);
-
     //if they won an art piece
     if(artPiecesWinnerIndex !== -1){
         add_to_cart(artPiecesWinnerIndex);
     } else {
-        console.log(`made coupon: ${winnerProduct}`);
         createCoupon(winnerProduct);
     }
 
