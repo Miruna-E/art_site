@@ -48,6 +48,7 @@ function add_to_cart_CSS(art_piece_index, listing_quantity){
 
     let new_cart_listing = document.createElement("div");
     new_cart_listing.classList.add("cart_listing");
+    new_cart_listing.setAttribute("data-is-gift", "false");
 
     let new_cart_listing_image_container = document.createElement("div");
     new_cart_listing_image_container.classList.add("cart_listing_image");
@@ -188,44 +189,83 @@ function enable_cart_listing_delete_buttons(){
 }
 enable_cart_listing_delete_buttons();
 
-//TO DO: fix these if's (they're not organized, it's not clear what they do :( ))
+//called whenever the big checkbox that says there are gifts in the cart is checked or unchecked
+document.getElementById("cart_gift_checkbox").addEventListener("change", () => {
+    let gift_wrapping_price = document.getElementById("gift_wrapping_price").innerText;
+    if(document.getElementById("cart_gift_checkbox").checked){
+        localStorage.cart_price = Number(localStorage.cart_price) + Number(gift_wrapping_price);
+
+        //creating a checkbox for each listing
+        let cart_listings_CSS = document.getElementsByClassName("cart_listing");
+        for(let listing_CSS of cart_listings_CSS){
+            //example of a checkbox
+            //<input id="checkbox0" name="checkbox0" class="listing_checkbox" type="checkbox"></input>
+
+            let new_checkbox = document.createElement("input");
+            new_checkbox.setAttribute("id", String("checkbox" + listing_CSS.getAttribute("data-listing-nr")));
+            new_checkbox.setAttribute("name", new_checkbox.getAttribute("id"));
+            new_checkbox.classList.add("listing_checkbox");
+            new_checkbox.setAttribute("type", "checkbox")
+
+            listing_CSS.appendChild(new_checkbox);
+        }
+    } else {
+        localStorage.cart_price = Number(localStorage.cart_price) - Number(gift_wrapping_price);
+
+        //removing the checkbox for each listing
+        let cart_listings_CSS = document.getElementsByClassName("cart_listing");
+        for(let listing_CSS of cart_listings_CSS){
+            //querySelector(".listing_checkbox") => select the element of class listing_checkbox
+            listing_CSS.removeChild(listing_CSS.querySelector(".listing_checkbox"));
+        }
+    }
+    cart_price.innerHTML = localStorage.cart_price;
+    markGifts();
+});
+
+//called whenever small checkboxes saying which listing is a gift is checked or unchecked
+function markGifts(){
+    let listing_checkboxes = document.getElementsByClassName("listing_checkbox");
+    for(let listing_checkbox of listing_checkboxes){
+        listing_checkbox.addEventListener("change", () => {
+            console.log("checked")
+            if(listing_checkbox.checked){
+                listing_checkbox.parentNode.setAttribute("data-is-gift", "true");
+            } else {
+                listing_checkbox.parentNode.setAttribute("data-is-gift", "false");
+            }
+        });
+    }
+}
+
 let cart_count_message = document.getElementById("cart_count_message");
 let cart_price = document.getElementById("cart_price");
 let cart_free_transport_fee = document.getElementById("cart_free_transport_fee");
 
-if(typeof(Storage) == "undefined"){
+if(typeof(Storage) == "undefined"){ //localStorage is not available
+    //cart_count_message, cart_price and cart_free_transport_fee only change at the same time
     if(cart_count_message){
         cart_count_message.innerHTML = "No web storage support!";
         cart_price.innerHTML = "0";
         cart_free_transport_fee.innerHTML = "0";
     } else console.log("No web storage support!");
 } else {
-    //cart_count_message and cart_price only change at the same time
-    if(localStorage.cart_count_message && localStorage.cart_price && localStorage.cart_free_transport_fee){
-        if(localStorage.cart_items_nr != 0){
-            localStorage.cart_count_message = String(localStorage.cart_items_nr) + " items";
-            
-            //must be placed after the "add_to_cart_CSS" function call
-            localStorage.cart_price = 0;
-            let listings_full_prices = document.getElementsByClassName("cart_listing_full_price");
-            for(let price of listings_full_prices){
-                localStorage.cart_price = Number(localStorage.cart_price) + Number(price.innerText);
-            }
-        } else {
-            localStorage.cart_count_message = "Your cart is empty.";
-            localStorage.cart_price = "0";
-        }
-
-        localStorage.cart_free_transport_fee = 100 - Number(localStorage.cart_price);
-
-        if(cart_count_message && cart_price && cart_free_transport_fee) {
-            cart_count_message.innerHTML = localStorage.cart_count_message;
-            cart_price.innerHTML = localStorage.cart_price;
-            cart_free_transport_fee.innerHTML = localStorage.cart_free_transport_fee;
+    if(localStorage.cart_items_nr != 0){
+        localStorage.cart_count_message = String(localStorage.cart_items_nr) + " items";
+        
+        //must be placed after the "add_to_cart_CSS" function call
+        localStorage.cart_price = 0;
+        let listings_full_prices = document.getElementsByClassName("cart_listing_full_price");
+        for(let price of listings_full_prices){
+            localStorage.cart_price = Number(localStorage.cart_price) + Number(price.innerText);
         }
     } else {
         localStorage.cart_count_message = "Your cart is empty.";
         localStorage.cart_price = "0";
-        localStorage.cart_free_transport_fee = "100";
     }
+
+    localStorage.cart_free_transport_fee = 100 - Number(localStorage.cart_price);
+    cart_count_message.innerHTML = localStorage.cart_count_message;
+    cart_price.innerHTML = localStorage.cart_price;
+    cart_free_transport_fee.innerHTML = localStorage.cart_free_transport_fee;
 }

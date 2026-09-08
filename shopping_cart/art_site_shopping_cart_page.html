@@ -30,7 +30,7 @@
         </div>
         </div>
         <h1>Your shopping cart</h1>
-        <div id="cart_free_shipping_message" class="cart_message">Buy another <span id="cart_free_transport_fee"></span> RON worth of products to benefit from free shipping &#x1F69A;</div>
+        <div id="cart_free_shipping_message" class="cart_message">Buy another <span id="cart_free_transport_fee" class="cart_message_b"></span> RON worth of products to benefit from free shipping &#x1F69A;</div>
         <!-- TO DO: make a working progress bar for the steps taken in order to buy products -->
     </header>
     <main>
@@ -42,11 +42,12 @@
             <!-- <span class="minimize_button">-</span> -->
         </div>
 
-        <!-- TO DO: add an option to wrap products as gifts, by choosing which products go in the gift. add a fee, see example photo -->
-        <div id="cart_count_message" class="cart_message"></div>
-        <div id="total_cart_price_message" class="cart_message">Total price, including tax: <span id="cart_price">0</span></div>
-        
-        <!-- TO DO: fix buttons sizes -->
+        <div id="cart_messages_container" class="center">
+            <div id="cart_gift_message" class="cart_message"><input id="cart_gift_checkbox" name="cart_gift_checkbox" type="checkbox">Choose which products to wrap as a gift for <span id="gift_wrapping_price" class="cart_message_b">20</span> RON</div> 
+            <div id="cart_count_message" class="cart_message" class="cart_message_b"></div>
+            <div id="total_cart_price_message" class="cart_message">Total price, including tax: <span id="cart_price" class="cart_message_b">0</span></div>
+        </div>
+
         <div class="center">
             <a id="shop_more_button" class="cart_button" href="..\main\index.html" target="_self">&#x21E6; Shop more</a>
             <div id="empty_cart_button" class="cart_button">Empty cart</div>
