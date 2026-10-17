@@ -24,6 +24,10 @@ h1{
     text-shadow: -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff, 2px 2px 0 #ffffff;
 }
 
+h2{
+    font-size: 3.5rem;
+}
+
 h2, h3, #cart_count, .cart_message{
     font-family: fantasy;
     font-weight: 500;

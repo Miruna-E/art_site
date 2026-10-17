@@ -1,0 +1,61 @@
+.shipping_section{
+    width: max-content;
+    margin: 1rem;
+}
+
+.shipping_section_button{
+    background-color: rgb(70, 54, 107);
+    border: dotted rgb(96, 120, 255) 0.2rem;
+    display: flex;
+}
+
+.shipping_section_title_with_icon{
+    display: flex;
+    margin: 0.6rem;
+    width: fit-content;
+}
+
+.shipping_section_icon, .expand_section_arrrow{
+    height: 32px;
+    width: 32px;
+    padding: 0.4rem;
+    margin: 0.2rem;
+}
+
+.form_choice_label{
+    width: 100%;
+}
+
+/* .form_choice => centers radio button
+.pickup_form_choice_details => centers text and image */
+.form_choice, .pickup_form_choice_details{ 
+    display: flex;
+    align-items: center;  /* => vertically align */
+}
+
+.pickup_form_choice_details{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.pickup_form_choice_text{
+    font-size: 1.4rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
+    text-align: center;
+    color: rgb(218, 197, 238);
+    margin: 0.2rem;
+}
+
+.pickup_form_choice_name_and_arrival_message, .pickup_form_choice_price{
+    margin: 0.8rem;;
+}
+
+.shipping_section_form{
+    background-color: rgba(70, 54, 107, 0.7);
+    width: fit-content;
+}
+
+fieldset{
+    border: double rgb(96, 120, 255) 0.4rem;
+}
