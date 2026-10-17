@@ -36,7 +36,7 @@
         <h2 id="shipping_title">Shipping</h2>
         <div id="shipping_section_container" class="center">
             <div id="shipping_section_pick_up" class="shipping_section">
-                <div id="shipping_section_pick_up_header" class="shipping_section_button center" data-dropped-down="0">
+                <div id="shipping_section_pick_up_header" class="shipping_section_button center" data-dropped-down="1">
                     <div class="shipping_section_title_with_icon">
                         <div class="shipping_section_icon">
                             <img src="..\images\pinpoint_icon.svg" alt="pinpoint map icon" width="32px" height="32px">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="expand_section_arrrow" >
                         <svg class="expand_section_arrrow_svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                         <p>Select a transport type</p>
 
                         <div class="form_choice">
-                        <input type="radio" id="SameDay_EasyBox" value="SameDay_EasyBox" name="transport_type" checked>
+                        <input class="form_choice_radio_button" type="radio" id="SameDay_EasyBox" value="SameDay_EasyBox" name="transport_type" checked>
                         <label for="SameDay_EasyBox" class="form_choice_label">
                             <div class="pickup_form_choice_details">
                                 <img class="logo_img" src="..\images\sameday_logo.png" alt="SameDay EasyBox logo" width="128px">
@@ -64,14 +64,14 @@
                                 <p class="pickup_form_choice_text pickup_form_choice_arrival_message">starting from <span class="cart_message_b pickup_form_choice_arrival_time">09.10.2026</span></p>
                                 <p class="pickup_form_choice_text warning">Payment done by card only, at the EasyBox.</p>
                                 </div>
-                                <p class="pickup_form_choice_text cart_message_b pickup_form_choice_price">13 RON</p>
+                                <p class="pickup_form_choice_text cart_message_b pickup_form_choice_price">12 RON</p>
                             </div>
                         </label>
                         <br>
                         </div>
 
                         <div class="form_choice">
-                        <input type="radio" id="FAN_Courier_PickUp" value="FAN_Courier_PickUp" name="transport_type">
+                        <input class="form_choice_radio_button" type="radio" id="FAN_Courier_PickUp" value="FAN_Courier_PickUp" name="transport_type" unchecked>
                         <label for="FAN_Courier_PickUp" class="form_choice_label">
                             <div class="pickup_form_choice_details">
                                 <img class="logo_img" src="..\images\fan_courier_logo.png" alt="FAN Courier PickUp logo" width="128px" height="128px">
@@ -86,7 +86,7 @@
                         </div>
 
                         <div class="form_choice">
-                        <input type="radio" id="Cargus_Ship_and_Go" value="Cargus_Ship_and_Go" name="transport_type">
+                        <input class="form_choice_radio_button" type="radio" id="Cargus_Ship_and_Go" value="Cargus_Ship_and_Go" name="transport_type" unchecked>
                         <label for="Cargus_Ship_and_Go" class="form_choice_label">
                             <div class="pickup_form_choice_details">
                                 <img class="logo_img" src="..\images\cargus_logo.png" alt="Cargus Ship and Go logo" width="128px">
@@ -94,7 +94,7 @@
                                 <p class="pickup_form_choice_text pickup_form_choice_name">Cargus Ship and Go</p>
                                 <p class="pickup_form_choice_text pickup_form_choice_arrival_message">starting from <span class="cart_message_b pickup_form_choice_arrival_time">09.10.2026</span></p>
                                 </div>
-                                <p class="pickup_form_choice_text cart_message_b pickup_form_choice_price">13 RON</p>
+                                <p class="pickup_form_choice_text cart_message_b pickup_form_choice_price">10 RON</p>
                             </div>
                         </label>
                         <br>
@@ -102,10 +102,125 @@
                     </fieldset>
                 </form>
             </div>
-            <div id="shipping_section_address" class="shipping_section"></div>
-        </div>
-        
 
+            <div id="shipping_section_store" class="shipping_section">
+                <div id="shipping_section_store_header" class="shipping_section_button center" data-dropped-down="1">
+                    <div class="shipping_section_title_with_icon">
+                        <div class="shipping_section_icon">
+                            <img src="..\images\store_icon.svg" alt="store icon" width="32px" height="32px">
+                        </div>
+                        <p class="shipping_section_title">Store</p>
+                    </div>
+                    <div class="expand_section_arrrow" >
+                        <svg class="expand_section_arrrow_svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <form id="shipping_section_store_form" class="shipping_section_form center" action="">
+                    <!-- fieldset => groups fields for readability -->
+                    <fieldset>
+                        <p> For orders over <span class="cart_message_b">100 RON</span>, you benefit from <span class="cart_message_b">free</span> shipping.</p>
+                        <p class="cart_message_b">You have <span class="cart_message_b">3 days</span> available to pick up your order.</p>
+
+                        <div class="form_choice">
+                        <input class="form_choice_radio_button" class="form_choice_radio_button" type="radio" id="vacation_store" value="vacation_store" name="transport_type" unchecked>
+                        <label for="vacation_store" class="form_choice_label">
+                            <div class="pickup_form_choice_details">
+                                <div class="pickup_form_choice_name_and_arrival_message">
+                                <p class="pickup_form_choice_text pickup_form_choice_name">Store on Vacation Street Nr.10</p>
+                                <p class="pickup_form_choice_text pickup_form_choice_arrival_message">starting from <span class="cart_message_b pickup_form_choice_arrival_time">08.10.2026</span></p>
+                                </div>
+                                <p class="pickup_form_choice_text cart_message_b pickup_form_choice_price">7 RON</p>
+                            </div>
+                        </label>
+                        <br>
+                        </div>
+
+                        <div class="form_choice">
+                        <input class="form_choice_radio_button" class="form_choice_radio_button" type="radio" id="lagoon_store" value="lagoon_store" name="transport_type" unchecked>
+                        <label for="lagoon_store" class="form_choice_label">
+                            <div class="pickup_form_choice_details">
+                                <div class="pickup_form_choice_name_and_arrival_message">
+                                <p class="pickup_form_choice_text pickup_form_choice_name">Store on Lagoon Street Nr.23</p>
+                                <p class="pickup_form_choice_text pickup_form_choice_arrival_message">starting from <span class="cart_message_b pickup_form_choice_arrival_time">08.10.2026</span></p>
+                                </div>
+                                <p class="pickup_form_choice_text cart_message_b pickup_form_choice_price">7 RON</p>
+                            </div>
+                        </label>
+                        <br>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div id="shipping_section_address" class="shipping_section">
+                <div id="shipping_section_address_header" class="shipping_section_button center" data-dropped-down="1">
+                    <div class="shipping_section_title_with_icon">
+                        <div class="shipping_section_icon">
+                            <img src="..\images\house_icon.svg" alt="house icon" width="32px" height="32px">
+                        </div>
+                        <p class="shipping_section_title">Deliver to address</p>
+                    </div>
+                    <div class="expand_section_arrrow" >
+                        <svg class="expand_section_arrrow_svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <form id="shipping_section_address_form" class="shipping_section_form center" action="">
+                    <!-- fieldset => groups fields for readability -->
+                    <fieldset>
+                        <p>Select a transport type</p>
+
+                        <div class="form_choice">
+                        <input class="form_choice_radio_button" class="form_choice_radio_button" type="radio" id="SameDay_address" value="SameDay_address" name="transport_type" unchecked>
+                        <label for="SameDay_address" class="form_choice_label">
+                            <div class="pickup_form_choice_details">
+                                <img class="logo_img" src="..\images\sameday_logo.png" alt="SameDay logo" width="128px">
+                                <div class="pickup_form_choice_name_and_arrival_message">
+                                <p class="pickup_form_choice_text pickup_form_choice_name">SameDay</p>
+                                <p class="pickup_form_choice_text pickup_form_choice_arrival_message">starting from <span class="cart_message_b pickup_form_choice_arrival_time">09.10.2026</span></p>
+                                </div>
+                                <p class="pickup_form_choice_text cart_message_b pickup_form_choice_price">17 RON</p>
+                            </div>
+                        </label>
+                        <br>
+                        </div>
+
+                        <div class="form_choice">
+                        <input class="form_choice_radio_button" class="form_choice_radio_button" type="radio" id="FAN_Courier_address" value="FAN_Courier_address" name="transport_type" unchecked>
+                        <label for="FAN_Courier_address" class="form_choice_label">
+                            <div class="pickup_form_choice_details">
+                                <img class="logo_img" src="..\images\fan_courier_logo.png" alt="FAN Courier logo" width="128px" height="128px">
+                                <div class="pickup_form_choice_name_and_arrival_message">
+                                <p class="pickup_form_choice_text pickup_form_choice_name">FAN Courier</p>
+                                <p class="pickup_form_choice_text pickup_form_choice_arrival_message">starting from <span class="cart_message_b pickup_form_choice_arrival_time">09.10.2026</span></p>
+                                </div>
+                                <p class="pickup_form_choice_text cart_message_b pickup_form_choice_price">18 RON</p>
+                            </div>
+                        </label>
+                        <br>
+                        </div>
+
+                        <div class="form_choice">
+                        <input class="form_choice_radio_button" class="form_choice_radio_button" type="radio" id="Cargus_address" value="Cargus_address" name="transport_type" unchecked>
+                        <label for="Cargus_address" class="form_choice_label">
+                            <div class="pickup_form_choice_details">
+                                <img class="logo_img" src="..\images\cargus_logo.png" alt="Cargus logo" width="128px">
+                                <div class="pickup_form_choice_name_and_arrival_message">
+                                <p class="pickup_form_choice_text pickup_form_choice_name">Cargus</p>
+                                <p class="pickup_form_choice_text pickup_form_choice_arrival_message">starting from <span class="cart_message_b pickup_form_choice_arrival_time">09.10.2026</span></p>
+                                </div>
+                                <p class="pickup_form_choice_text cart_message_b pickup_form_choice_price">15 RON</p>
+                            </div>
+                        </label>
+                        <br>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
         
     </main>
 </body>

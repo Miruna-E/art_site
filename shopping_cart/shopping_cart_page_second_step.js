@@ -11,11 +11,11 @@ function enableExpandSectionButtons(){
             if(button.getAttribute("data-dropped-down") === "0"){
                 button_svg_arrow.setAttribute("d", "M18 15L12 9L6 15"); //changed to downwards pointing arrow
                 button.setAttribute("data-dropped-down", "1");
-                form.style.visibility = "hidden";
+                form.style.display = "inherit";
             } else {
                 button_svg_arrow.setAttribute("d", "M6 9L12 15L18 9"); //changed to upwards pointing arrow
                 button.setAttribute("data-dropped-down", "0");
-                form.style.visibility = "visible";
+                form.style.display = "none";
             }
         });
     }

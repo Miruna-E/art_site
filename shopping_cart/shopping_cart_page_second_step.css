@@ -1,12 +1,27 @@
+#shipping_section_container{
+    display: block;
+    width: 100%;
+
+    /* without min-width, part of the shipping sections will be inaccessible */
+    min-width: 50rem;
+}
+
 .shipping_section{
-    width: max-content;
     margin: 1rem;
+    width: 80%;
+
+    /* without max-width and min-width, the form would be bigger than its container (shipping_section)*/
+    max-width: 60rem;
+    min-width: 50rem;
 }
 
 .shipping_section_button{
     background-color: rgb(70, 54, 107);
-    border: dotted rgb(96, 120, 255) 0.2rem;
+    border: dotted rgb(96, 120, 255) 0.4rem;
     display: flex;
+    margin: 0.2rem;
+    margin-bottom: 0;
+    width: 100%;
 }
 
 .shipping_section_title_with_icon{
@@ -30,12 +45,16 @@
 .pickup_form_choice_details => centers text and image */
 .form_choice, .pickup_form_choice_details{ 
     display: flex;
-    align-items: center;  /* => vertically align */
+    align-items: center;  /* => vertifcally align */
+}
+
+.form_choice_radio_button{
+    margin: 1rem;
 }
 
 .pickup_form_choice_details{
-    width: 100%;
     justify-content: space-between;
+    width: 100%;
 }
 
 .pickup_form_choice_text{
@@ -52,10 +71,16 @@
 }
 
 .shipping_section_form{
+    border: double rgb(96, 120, 255) 0.4rem;
     background-color: rgba(70, 54, 107, 0.7);
-    width: fit-content;
+    margin: 0.2rem;
+    margin-top: 0;
+    width: 100%;
 }
 
 fieldset{
-    border: double rgb(96, 120, 255) 0.4rem;
+    border: none;
+    width: inherit;
+    padding: 0;
+    margin: 0;
 }
