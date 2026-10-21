@@ -74,36 +74,10 @@ function createCoupon(message){
     localStorage.setItem("couponQuantity", couponQuantity);
 }
 
-// //testing localStorage
-// console.log(localStorage.getItem("couponMessages"));
-// console.log(localStorage.getItem("couponQuantity"));
-
 if(localStorage.getItem("couponMessages") !== "null" || localStorage.getItem("couponQuantity") !== "null"){ 
     couponMessages = localStorage.getItem("couponMessages").split(',');
     couponQuantity = localStorage.getItem("couponQuantity").split(',');
 }
-
-//idk how to do this button type :( DO LATER
-// let minimizeButtonsState = [];
-// let minimizeButtonParentsHTML = [];
-
-// function enableMinimizeButtons(){
-//     let minimizeButtons = document.getElementsByClassName("minimize_button");
-//     for(let index = 0; index < minimizeButtons.length; index++){
-//         minimizeButtons[index].addEventListener("click", () => {
-//             //minimize is on or off
-//             if(minimizeButtonsState[index] != 1){
-//                 minimizeButtonsState[index] = 0;
-//                 minimizeButtonParentsHTML[index] = minimizeButtons[index].parentElement.outerHTML;
-//                 minimizeButtons[index].parentElement.outerHTML = "";
-//             } else {
-//                 minimizeButtonsState[index] = 1;
-//                 minimizeButtons[index].parentElement.outerHTML = minimizeButtonParentsHTML[index];
-//             } 
-//         });
-//     }
-// }
-// enableMinimizeButtons();
 
 function enableClosingButtons(){
     let closeButtons = document.getElementsByClassName("closeButton");
@@ -163,10 +137,6 @@ function enable_add_to_cart_buttons(){
 }
 enable_add_to_cart_buttons();
 
-// //testing localStorage
-// console.log(localStorage.getItem("cart_listings"));
-// console.log(localStorage.getItem("listingsQuantity"));
-
 // document.location.href is not reliable (originally read-only ex: Internet Explorer) => use window.location.href
 document.getElementById("shop_all_menu_option").addEventListener("click", () => {
     filter_art("all");
@@ -201,38 +171,3 @@ function filter_art(filter_by){
     page_container.replaceChildren(...container_visible, ...container_hidden);
     return false; //doesn't do default action
 }
-/*
-If an event causes both a default action and execution of a event handling script:
-the event handler script is executed first
-the default action takes place afterwards
-=> onclick -> href
-*/
-
-// how to write new art pieces and art products' properties' values:
-// container_id = piece + index 
-// photo_id = art_piece_photo + index
-// title_id = art_piece_title + index
-// price_id = price + index
-// description_id = art_piece_description + index
-// add_to_cart_button_id = add_to_cart_piece + index
-// quantity_id = quantity + index
-
-// //create new art piece
-// function add_art_piece(index){
-//     if(index != Number(index) || index >= art_pieces.length){
-//         console.log("Wrong index entered!");
-//         return 1;
-//     }
-//     let main_container = document.getElementById("main_container");
-//     let to_add = art_pieces[index];
-//     let new_container = document.createElement("li");
-//     new_container.class = "art_piece_container";
-//     new_container.id = "piece" + String(index);
-//     let new_photo_container = document.createElement("art_piece_photo_container");
-    
-    
-    
-//     main_container.appendChild(new_container);
-//     new_container.appendChild(new_photo_container);
-
-// };

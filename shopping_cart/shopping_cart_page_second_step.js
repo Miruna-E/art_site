@@ -21,3 +21,17 @@ function enableExpandSectionButtons(){
     }
 }
 enableExpandSectionButtons();
+
+let cart_price = document.getElementById("cart_price");
+
+if(typeof(Storage) == "undefined"){ //localStorage is not available
+    if(cart_price){
+        cart_price.innerHTML = "0";
+    } else console.log("No web storage support!");
+} else {
+    if(localStorage.cart_items_nr == 0){
+        localStorage.cart_price = "0";
+    }
+
+    cart_price.innerHTML = localStorage.cart_price;
+}

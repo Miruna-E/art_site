@@ -265,6 +265,9 @@ if(typeof(Storage) == "undefined"){ //localStorage is not available
     }
 
     localStorage.cart_free_transport_fee = 100 - Number(localStorage.cart_price);
+    if(localStorage.cart_free_transport_fee < 0){
+        localStorage.cart_free_transport_fee = 0;
+    }
     cart_count_message.innerHTML = localStorage.cart_count_message;
     cart_price.innerHTML = localStorage.cart_price;
     cart_free_transport_fee.innerHTML = localStorage.cart_free_transport_fee;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>shopping cart</title>
     <link rel="icon" type="image/x-icon" href="..\images\site_icon.jpg">
@@ -9,6 +9,7 @@
     <script src="..\index.js" defer></script>
     <script src=".\shopping_cart_page_second_step.js" defer></script>
     <meta charset="UTF-8">
+    <meta name="description" content="The shopping cart containing delivery options and payment types. This is the second step, after choosing to buy the products in the cart.">
 </head>
 
 <body>
@@ -222,6 +223,14 @@
             </div>
         </div>
         
+        <div id="cart_messages_container" class="center">
+            <div id="total_cart_price_message" class="cart_message">Total price, including tax: <span id="cart_price" class="cart_message_b">0</span></div>
+        </div>
+
+        <div class="center">
+            <a id="shop_more_button" class="cart_button" href="..\main\index.html" target="_self">&#x21E6; Shop more</a>
+            <a id="next_step_cart_button" class="cart_button" href=".\shopping_cart_page_second_step.html" target="_self">Next step &#x21E8;</a>
+        </div>
     </main>
 </body>
 </html>
