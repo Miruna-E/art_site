@@ -117,24 +117,24 @@ function add_to_cart_CSS(art_piece_index, listing_quantity){
 }
 
 //these are OBJECTS of numbers
-if(localStorage.getItem("cart_listings") !== "null" || localStorage.getItem("listingsQuantity") !== "null"){ 
+if(localStorage.getItem("cart_listings") !== null || localStorage.getItem("listingsQuantity") !== null){ 
     cart_listings = localStorage.getItem("cart_listings").split(',');
     listingsQuantity = localStorage.getItem("listingsQuantity").split(',');
 }
 
 //if the cart has items in localStorage and they're correctly stored (index of art_pieces + quantity)
-if(cart_listings && listingsQuantity && cart_listings[0] !== "null" && listingsQuantity[0] !== "null"){
+if(cart_listings && listingsQuantity && cart_listings[0] !== null && listingsQuantity[0] !== null){
    for(let index = 0; index < cart_listings.length; index++){
         add_to_cart_CSS(cart_listings[index], listingsQuantity[index]);
    }
 }
 
-if(localStorage.getItem("couponMessages") !== "null" || localStorage.getItem("couponQuantity") !== "null"){ 
+if(localStorage.getItem("couponMessages") !== null || localStorage.getItem("couponQuantity") !== null){ 
     couponMessages = localStorage.getItem("couponMessages").split(',');
     couponQuantity = localStorage.getItem("couponQuantity").split(',');
 }
 
-if(couponMessages && couponQuantity && couponMessages[0] !== "null" && couponQuantity[0] !== "null"){
+if(couponMessages && couponQuantity && couponMessages[0] !== null && couponQuantity[0] !== null){
    for(let index = 0; index < couponMessages.length; index++){
         createCouponCSS(couponMessages[index], couponQuantity[index]);
    }
@@ -162,7 +162,7 @@ function enable_cart_listing_delete_buttons(){
     let cart_listing_delete_buttons = document.getElementsByClassName("cart_listing_delete_button");
     for(let button of cart_listing_delete_buttons){
         button.addEventListener("click", () => {
-            if(cart_listings && listingsQuantity && cart_listings[0] !== "null" && listingsQuantity[0] !== "null"){
+            if(cart_listings && listingsQuantity && cart_listings[0] !== null && listingsQuantity[0] !== null){
                 let listing_to_delete_index = Number(button.parentNode.getAttribute("data-listing-nr"));
                 
                 let temp_cart_items_nr = Number(localStorage.cart_items_nr) - Number(listingsQuantity[listing_to_delete_index]);

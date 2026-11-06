@@ -122,6 +122,11 @@ header{
     margin-top: 4%;
 }
 
+#cart_icon_img{
+    width: 100px;
+    height: 100px;
+}
+
 .cart img{
     position: fixed;
     right: 0;

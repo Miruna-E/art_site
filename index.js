@@ -35,7 +35,7 @@ let cart_listings=[];
 //quantity in shopping cart for each product, in order
 let listingsQuantity=[];
 
-if(localStorage.getItem("cart_listings") !== "null" || localStorage.getItem("listingsQuantity") !== "null"){ 
+if(localStorage.getItem("cart_listings") !== null && localStorage.getItem("listingsQuantity") !== null){ 
     cart_listings = localStorage.getItem("cart_listings").split(',');
     listingsQuantity = localStorage.getItem("listingsQuantity").split(',');
 }
@@ -56,7 +56,7 @@ let couponMessages=[];
 //quantity in shopping cart for each coupon, in order
 let couponQuantity=[];
 
-if(localStorage.getItem("couponMessages") !== "null" || localStorage.getItem("couponQuantity") !== "null"){ 
+if(localStorage.getItem("couponMessages") !== null && localStorage.getItem("couponQuantity") !== null){ 
     couponMessages = localStorage.getItem("couponMessages").split(',');
     couponQuantity = localStorage.getItem("couponQuantity").split(',');
 }

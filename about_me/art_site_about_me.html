@@ -3,7 +3,10 @@
 <head>
     <title>about me</title>
     <link rel="icon" type="image/x-icon" href="..\images\site_icon.jpg">
-    <link rel="stylesheet" href="..\index.css">
+
+    <link rel="preload" href="..\index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="..\index.css"></noscript>
+    
     <script src="..\index.js" defer></script>
     <meta charset="UTF-8">
     <meta name="description" content="My about me page talking about my education (a college student with no formal education in art), past drawings and ways of coming up with new drawing ideas.">
@@ -22,7 +25,7 @@
         </nav>
         <div id="cart_container">
             <a href="..\shopping_cart\art_site_shopping_cart_page.html" target="_self">
-                <img src="..\images\shopping_cart_icon.png" alt="shopping_cart_icon"> 
+                <img id="cart_icon_img" src="..\images\shopping_cart_icon.png" alt="shopping_cart_icon"> 
                 <!-- modifying the height and width of the icon here affects the container -->
             </a>
             <div class="cart_count" id="cart_count"></div>
